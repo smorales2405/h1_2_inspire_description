@@ -317,6 +317,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        right_thumb_swing:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         right_thumb_1:
           Alpha: 1
           Show Axes: false
@@ -328,11 +333,6 @@ Visualization Manager:
           Show Trail: false
           Value: true
         right_thumb_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_thumb_4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -483,13 +483,13 @@ Visualization Manager:
           Value: false
         right_shoulder_yaw_link:
           Value: false
+        right_thumb_swing:
+          Value: false
         right_thumb_1:
           Value: false
         right_thumb_2:
           Value: false
         right_thumb_3:
-          Value: false
-        right_thumb_4:
           Value: false
         right_wrist_pitch_link:
           Value: false
@@ -574,10 +574,10 @@ Visualization Manager:
                             right_ring_1:
                               right_ring_2:
                                 {}
-                            right_thumb_1:
-                              right_thumb_2:
-                                right_thumb_3:
-                                  right_thumb_4:
+                            right_thumb_swing:
+                              right_thumb_1:
+                                right_thumb_2:
+                                  right_thumb_3:
                                     {}
       Update Interval: 0
       Value: true

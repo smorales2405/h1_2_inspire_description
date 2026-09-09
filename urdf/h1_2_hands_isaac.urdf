@@ -1251,11 +1251,40 @@
       </geometry>
     </collision>
   </link>
-  <link name="right_thumb_1">
+  <link name="right_thumb_swing">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00178423179132727 0.000649410769092446 0.0048858931043441" />
       <mass value="0.00115518743162309" />
       <inertia ixx="5.98911473694572E-08" ixy="-8.04324266712912E-09" ixz="-3.29346964287941E-09" iyy="4.07201940087006E-08" iyz="1.1987242259973E-09" izz="6.18161684388651E-08" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_thumb_swing.STL" />
+      </geometry>
+      <material name="right_thumb_swing_mat">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_thumb_swing.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_thumb_swing_joint" type="revolute">
+    <origin rpy="0 0 0" xyz="-0.035227 -0.0908 -0.041956" />
+    <parent link="right_hand_base_link" />
+    <child link="right_thumb_swing" />
+    <axis xyz="0 0 -1" />
+    <limit effort="1" lower="0" upper="1.70" velocity="100" />
+  </joint>
+  <link name="right_thumb_1">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0161097484383394 0.0103028022975375 -0.00905330600289518" />
+      <mass value="0.030" />
+      <inertia ixx="1.05608173707368E-06" ixy="-8.93990422826739E-08" ixz="-4.0717047155279E-10" iyy="1.12055666436187E-06" iyz="-3.12541187909307E-10" izz="1.43604602983943E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1274,17 +1303,17 @@
     </collision>
   </link>
   <joint name="right_thumb_1_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.035227 -0.0908 -0.041956" />
-    <parent link="right_hand_base_link" />
+    <origin rpy="1.5708 0 2.7925" xyz="-0.0063016 0.011924 0.003" />
+    <parent link="right_thumb_swing" />
     <child link="right_thumb_1" />
-    <axis xyz="0 0 -1" />
-    <limit effort="1" lower="0" upper="1.7" velocity="100" />
+    <axis xyz="0 0 1" />
+    <limit effort="1" lower="0" upper="0.92" velocity="100" />
   </joint>
   <link name="right_thumb_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0161097484383394 0.0103028022975375 -0.00905330600289518" />
-      <mass value="0.030" />
-      <inertia ixx="1.05608173707368E-06" ixy="-8.93990422826739E-08" ixz="-4.0717047155279E-10" iyy="1.12055666436187E-06" iyz="-3.12541187909307E-10" izz="1.43604602983943E-06" />
+      <origin rpy="0 0 0" xyz="0.00924505131715823 0.00481918438391222 -0.00753905171750578" />
+      <mass value="0.020" />
+      <inertia ixx="4.84948263631248E-07" ixy="-4.6215685121335E-08" ixz="-5.73077020148322E-11" iyy="3.97628031594582E-07" iyz="-2.99889919786187E-10" izz="4.38765869483229E-07" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1303,17 +1332,17 @@
     </collision>
   </link>
   <joint name="right_thumb_2_joint" type="revolute">
-    <origin rpy="1.5708 0 2.7925" xyz="-0.0063016 0.011924 0.003" />
+    <origin rpy="0 0 0" xyz="0.038292 0.014535 -0.0015" />
     <parent link="right_thumb_1" />
     <child link="right_thumb_2" />
     <axis xyz="0 0 1" />
-    <limit effort="1" lower="0.035" upper="0.90" velocity="100" />
+    <limit effort="1" lower="0" upper="3.14" velocity="100" />
   </joint>
   <link name="right_thumb_3">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00924505131715823 0.00481918438391222 -0.00753905171750578" />
-      <mass value="0.020" />
-      <inertia ixx="4.84948263631248E-07" ixy="-4.6215685121335E-08" ixz="-5.73077020148322E-11" iyy="3.97628031594582E-07" iyz="-2.99889919786187E-10" izz="4.38765869483229E-07" />
+      <origin rpy="0 0 0" xyz="0.0136013574986204 0.0105235463357921 -0.00734356571247173" />
+      <mass value="0.014" />
+      <inertia ixx="7.90885781861325E-07" ixy="-2.49464441546171E-07" ixz="6.42303183060523E-10" iyy="6.16404813927616E-07" iyz="9.69366750167204E-10" izz="9.25691764995085E-07" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1332,38 +1361,9 @@
     </collision>
   </link>
   <joint name="right_thumb_3_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.038292 0.014535 -0.0015" />
+    <origin rpy="0 0 0" xyz="0.018189 0.012576 -0.0002" />
     <parent link="right_thumb_2" />
     <child link="right_thumb_3" />
-    <axis xyz="0 0 1" />
-    <limit effort="1" lower="0" upper="3.14" velocity="100" />
-  </joint>
-  <link name="right_thumb_4">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0136013574986204 0.0105235463357921 -0.00734356571247173" />
-      <mass value="0.014" />
-      <inertia ixx="7.90885781861325E-07" ixy="-2.49464441546171E-07" ixz="6.42303183060523E-10" iyy="6.16404813927616E-07" iyz="9.69366750167204E-10" izz="9.25691764995085E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_thumb_4.STL" />
-      </geometry>
-      <material name="right_thumb_4_mat">
-        <color rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_thumb_4.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_thumb_4_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.018189 0.012576 -0.0002" />
-    <parent link="right_thumb_3" />
-    <child link="right_thumb_4" />
     <axis xyz="0 0 1" />
     <limit effort="1" lower="0" upper="3.14" velocity="100" />
   </joint>

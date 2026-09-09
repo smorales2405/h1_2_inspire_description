@@ -22,8 +22,8 @@ Tested with **ROS 2 Humble** on Ubuntu 22.04.
 
 ```
 meshes/
-├── h1_2/        ← Unitree H1-2 body meshes (88 STL)
-├── hand_left/   ← Inspire RH56DFTP left hand meshes (14 STL)
+├── h1_2/        ← Unitree H1-2 body meshes (28 STL)
+├── hand_left/   ← Inspire RH56DFTP left hand meshes (13 STL)
 └── hand_right/  ← Inspire RH56DFTP right hand meshes (13 STL)
 ```
 
@@ -37,10 +37,13 @@ meshes/
 ### Inspire RH56DFTP hands (12 joints each)
 Each hand has 6 actuated joints and 6 mimic joints:
 
+Both hands use the **same joint names** (`*_thumb_swing`, `*_thumb_1..3`) and the
+**same limits** (`*_thumb_swing` `[0, 1.70]`, `*_thumb_1` `[0, 0.92]`, fingers `[0, 1.6]`).
+
 | Side | Actuated | Mimic (ROS) / Independent (Isaac) |
 |---|---|---|
 | Left | `left_thumb_swing`, `left_thumb_1`, `left_index_1`, `left_middle_1`, `left_ring_1`, `left_little_1` | `*_2/_3` joints |
-| Right | `right_thumb_1`, `right_thumb_2`, `right_index_1`, `right_middle_1`, `right_ring_1`, `right_little_1` | `*_3/_4/_2` joints |
+| Right | `right_thumb_swing`, `right_thumb_1`, `right_index_1`, `right_middle_1`, `right_ring_1`, `right_little_1` | `*_2/_3` joints |
 
 ### Hand mounting points
 
@@ -159,7 +162,7 @@ Use the file `urdf/h1_2_hands_isaac.urdf` — a flat URDF pre-processed for Isaa
 
 - [ ] **Robot Model**: verify pelvis is the root, arms and legs attach correctly
 - [ ] **Finger joints**: check that all 24 hand joints (12 per hand) are present in the Articulation Inspector
-- [ ] **Mimic joints**: the 12 secondary phalanges (`*_2`, `*_3`, `*_4`) are now **independent revolute joints** at position 0 (fully open). They will not follow the primary joints automatically — see note below
+- [ ] **Mimic joints**: the 12 secondary phalanges (`*_2`, `*_3`) are now **independent revolute joints** at position 0 (fully open). They will not follow the primary joints automatically — see note below
 - [ ] **Self-collision OFF**: do not enable until collision meshes have been manually inspected in the viewport
 - [ ] **Articulation root**: confirm that `pelvis` is set as the articulation root (`RigidBodyAPI` + `ArticulationRootAPI`)
 - [ ] **Convert to USD**: after a successful import, save as USD for faster future loading
@@ -201,8 +204,8 @@ Complete coupling table:
 | `left_middle_2_joint` | `left_middle_1_joint` | 1.05 |
 | `left_ring_2_joint` | `left_ring_1_joint` | 1.05 |
 | `left_little_2_joint` | `left_little_1_joint` | 1.05 |
-| `right_thumb_3_joint` | `right_thumb_2_joint` | 0.40 |
-| `right_thumb_4_joint` | `right_thumb_2_joint` | 0.60 |
+| `right_thumb_2_joint` | `right_thumb_1_joint` | 0.40 |
+| `right_thumb_3_joint` | `right_thumb_1_joint` | 0.60 |
 | `right_index_2_joint` | `right_index_1_joint` | 1.05 |
 | `right_middle_2_joint` | `right_middle_1_joint` | 1.05 |
 | `right_ring_2_joint` | `right_ring_1_joint` | 1.05 |
