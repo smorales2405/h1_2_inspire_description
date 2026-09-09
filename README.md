@@ -40,6 +40,12 @@ Each hand has 6 actuated joints and 6 mimic joints:
 Both hands use the **same joint names** (`*_thumb_swing`, `*_thumb_1..3`) and the
 **same limits** (`*_thumb_swing` `[0, 1.70]`, `*_thumb_1` `[0, 0.92]`, fingers `[0, 1.6]`).
 
+The **right hand's digits are the exact mirror of the left hand's** across the
+palm's `y=0` plane — verified to 0.000000 mm vertex-for-vertex, at rest and
+throughout the joint range. The left hand is the reference: to change the digit
+geometry, edit `inspire_hand_left.urdf.xacro` and re-mirror the right, never the
+other way round. The palm (`*_hand_base_link`) is each side's own vendor export.
+
 | Side | Actuated | Mimic (ROS) / Independent (Isaac) |
 |---|---|---|
 | Left | `left_thumb_swing`, `left_thumb_1`, `left_index_1`, `left_middle_1`, `left_ring_1`, `left_little_1` | `*_2/_3` joints |

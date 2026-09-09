@@ -1241,7 +1241,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/base_link.STL" />
       </geometry>
       <material name="right_hand_base_link_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1253,9 +1253,9 @@
   </link>
   <link name="right_thumb_swing">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00178423179132727 0.000649410769092446 0.0048858931043441" />
+      <origin rpy="0 0 0" xyz="-0.001897403655087 7.12516796909923E-05 0.00313589310434412" />
       <mass value="0.00115518743162309" />
-      <inertia ixx="5.98911473694572E-08" ixy="-8.04324266712912E-09" ixz="-3.29346964287941E-09" iyy="4.07201940087006E-08" iyz="1.1987242259973E-09" izz="6.18161684388651E-08" />
+      <inertia ixx="6.27834293959477E-08" ixy="-9.38445541803444E-10" ixz="-3.50236810587605E-09" iyy="3.78279141131513E-08" iyz="1.31528360070952E-10" izz="6.1816168438865E-08" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1263,7 +1263,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_thumb_swing.STL" />
       </geometry>
       <material name="right_thumb_swing_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1274,7 +1274,7 @@
     </collision>
   </link>
   <joint name="right_thumb_swing_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.035227 -0.0908 -0.041956" />
+    <origin rpy="0 0 0" xyz="-0.035227 -0.0908 -0.040206" />
     <parent link="right_hand_base_link" />
     <child link="right_thumb_swing" />
     <axis xyz="0 0 -1" />
@@ -1282,9 +1282,9 @@
   </joint>
   <link name="right_thumb_1">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0161097484383394 0.0103028022975375 -0.00905330600289518" />
-      <mass value="0.030" />
-      <inertia ixx="1.05608173707368E-06" ixy="-8.93990422826739E-08" ixz="-4.0717047155279E-10" iyy="1.12055666436187E-06" iyz="-3.12541187909307E-10" izz="1.43604602983943E-06" />
+      <origin rpy="0 0 0" xyz="-0.0163208309809786 -0.00996672794459635 -0.00940273641037634" />
+      <mass value="0.035" />
+      <inertia ixx="1.05252775356938E-06" ixy="-8.8013589531825E-08" ixz="4.12297543062756E-10" iyy="1.12456993863274E-06" iyz="3.58528262599009E-10" izz="1.43633392322177E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1292,7 +1292,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_thumb_1.STL" />
       </geometry>
       <material name="right_thumb_1_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1303,7 +1303,7 @@
     </collision>
   </link>
   <joint name="right_thumb_1_joint" type="revolute">
-    <origin rpy="1.5708 0 2.7925" xyz="-0.0063016 0.011924 0.003" />
+    <origin rpy="-1.5708 0 -0.037536" xyz="-0.0096402 0.0097687 0.00125" />
     <parent link="right_thumb_swing" />
     <child link="right_thumb_1" />
     <axis xyz="0 0 1" />
@@ -1311,9 +1311,9 @@
   </joint>
   <link name="right_thumb_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00924505131715823 0.00481918438391222 -0.00753905171750578" />
-      <mass value="0.020" />
-      <inertia ixx="4.84948263631248E-07" ixy="-4.6215685121335E-08" ixz="-5.73077020148322E-11" iyy="3.97628031594582E-07" iyz="-2.99889919786187E-10" izz="4.38765869483229E-07" />
+      <origin rpy="0 0 0" xyz="-0.0100669921030146 -0.0027226860312175 -0.00854141424002414" />
+      <mass value="0.023" />
+      <inertia ixx="4.61650984659959E-07" ixy="-6.02617854200335E-08" ixz="4.49999330286846E-11" iyy="4.2100553287784E-07" iyz="2.1886405983307E-10" izz="4.38695633575155E-07" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1321,7 +1321,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_thumb_2.STL" />
       </geometry>
       <material name="right_thumb_2_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1332,7 +1332,7 @@
     </collision>
   </link>
   <joint name="right_thumb_2_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.038292 0.014535 -0.0015" />
+    <origin rpy="0 0 0" xyz="-0.0385855343215257 -0.0137354280979689 -0.00085000000007604" />
     <parent link="right_thumb_1" />
     <child link="right_thumb_2" />
     <axis xyz="0 0 1" />
@@ -1340,9 +1340,9 @@
   </joint>
   <link name="right_thumb_3">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0136013574986204 0.0105235463357921 -0.00734356571247173" />
-      <mass value="0.014" />
-      <inertia ixx="7.90885781861325E-07" ixy="-2.49464441546171E-07" ixz="6.42303183060523E-10" iyy="6.16404813927616E-07" iyz="9.69366750167204E-10" izz="9.25691764995085E-07" />
+      <origin rpy="0 0 0" xyz="-0.0166252667929019 -0.00439732092491903 -0.00874331047569411" />
+      <mass value="0.018" />
+      <inertia ixx="5.85505830748828E-07" ixy="-2.36405978862981E-07" ixz="-9.42185151685949E-10" iyy="8.21798877779441E-07" iyz="-6.15791569450789E-10" izz="9.25701229462772E-07" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1350,7 +1350,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_thumb_3.STL" />
       </geometry>
       <material name="right_thumb_3_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1361,7 +1361,7 @@
     </collision>
   </link>
   <joint name="right_thumb_3_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.018189 0.012576 -0.0002" />
+    <origin rpy="0 0 0" xyz="-0.0204656980659991 -0.00837680232935447 0.000199999999999881" />
     <parent link="right_thumb_2" />
     <child link="right_thumb_3" />
     <axis xyz="0 0 1" />
@@ -1369,9 +1369,9 @@
   </joint>
   <link name="right_index_1">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00183546255523358 0.0123552521861834 -0.00664922294778368" />
-      <mass value="0.00719999389753263" />
-      <inertia ixx="1.28371991025319E-06" ixy="4.21564829206075E-08" ixz="-4.10859703076842E-12" iyy="5.79478432222903E-07" iyz="6.39690407241903E-11" izz="1.32925246769088E-06" />
+      <origin rpy="0 0 0" xyz="0.00219916454162671 -0.0122949545354551 -0.00779931609805271" />
+      <mass value="0.00719950629120704" />
+      <inertia ixx="1.28051762409609E-06" ixy="6.28742259934098E-08" ixz="8.85831478756991E-13" iyy="5.82545787352841E-07" iyz="-8.55749735433038E-11" izz="1.32913319060816E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1379,7 +1379,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_index_1.STL" />
       </geometry>
       <material name="right_index_1_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1390,7 +1390,7 @@
     </collision>
   </link>
   <joint name="right_index_1_joint" type="revolute">
-    <origin rpy="1.6057 0 -1.5708" xyz="-0.047006 -0.11125 0.045444" />
+    <origin rpy="-1.6057 0 1.5708" xyz="-0.048156 -0.11125 0.045404" />
     <parent link="right_hand_base_link" />
     <child link="right_index_1" />
     <axis xyz="0 0 1" />
@@ -1398,9 +1398,9 @@
   </joint>
   <link name="right_index_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.000405081354201142 0.0257028143581744 -0.00609275623125877" />
-      <mass value="0.0096859422185797" />
-      <inertia ixx="2.25513837942244E-06" ixy="4.11239564383381E-07" ixz="-3.94499739658712E-10" iyy="3.91290903748666E-07" iyz="2.79706871963247E-09" izz="2.30200483771215E-06" />
+      <origin rpy="0 0 0" xyz="-0.000690175178177488 -0.0256943199737118 -0.0074925254099278" />
+      <mass value="0.00968687528768598" />
+      <inertia ixx="2.26451337650877E-06" ixy="3.90524448356852E-07" ixz="3.56545732231415E-10" iyy="3.82394128669363E-07" iyz="-2.76896757225301E-09" izz="2.302471439937E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1408,7 +1408,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_index_2.STL" />
       </geometry>
       <material name="right_index_2_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1419,7 +1419,7 @@
     </collision>
   </link>
   <joint name="right_index_2_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.0016312 0.032734 -0.00055" />
+    <origin rpy="0 0 0" xyz="0.00259487212105013 -0.0326721877470773 -0.000299999999999988" />
     <parent link="right_index_1" />
     <child link="right_index_2" />
     <axis xyz="0 0 1" />
@@ -1427,9 +1427,9 @@
   </joint>
   <link name="right_middle_1">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00229221489529488 0.0122787164691098 -0.00664923691414206" />
-      <mass value="0.0071999945469965" />
-      <inertia ixx="1.27961146095209E-06" ixy="6.81307502326405E-08" ixz="-6.13869092494893E-12" iyy="5.83570383259162E-07" iyz="6.33401074036368E-11" izz="1.32923656099557E-06" />
+      <origin rpy="0 0 0" xyz="0.00229271394242234 -0.0122778605414752 -0.00779931823074317" />
+      <mass value="0.00719950322487975" />
+      <inertia ixx="1.27951858905778E-06" ixy="6.81813021711601E-08" ixz="1.5855112157922E-12" iyy="5.83543537428456E-07" iyz="-8.56179612609339E-11" izz="1.32913234511164E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1437,7 +1437,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_middle_1.STL" />
       </geometry>
       <material name="right_middle_1_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1448,7 +1448,7 @@
     </collision>
   </link>
   <joint name="right_middle_1_joint" type="revolute">
-    <origin rpy="1.5708 0 -1.5708" xyz="-0.025427 -0.11125 0.046044" />
+    <origin rpy="-1.5708 0 1.5708" xyz="-0.026577 -0.11125 0.046044" />
     <parent link="right_hand_base_link" />
     <child link="right_middle_1" />
     <axis xyz="0 0 1" />
@@ -1456,9 +1456,9 @@
   </joint>
   <link name="right_middle_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="7.55635118059039E-05 0.0274472409648012 -0.00610051224365681" />
-      <mass value="0.0104603374244707" />
-      <inertia ixx="2.75802690508112E-06" ixy="4.66354191476345E-07" ixz="-3.7332807411606E-12" iyy="4.22418749309736E-07" iyz="7.48556574992485E-11" izz="2.8069463787114E-06" />
+      <origin rpy="0 0 0" xyz="-7.51983994427274E-05 -0.027448753770842 -0.00750059894166984" />
+      <mass value="0.0104611931926301" />
+      <inertia ixx="2.75831931773332E-06" ixy="4.66412841401028E-07" ixz="7.3576656177484E-12" iyy="4.22466538741155E-07" iyz="-1.79608426686722E-11" izz="2.80722617348706E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1466,7 +1466,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_middle_2.STL" />
       </geometry>
       <material name="right_middle_2_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1477,7 +1477,7 @@
     </collision>
   </link>
   <joint name="right_middle_2_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.0028436 0.032651 -0.00055" />
+    <origin rpy="0 0 0" xyz="0.0028436 -0.032651 -0.0003" />
     <parent link="right_middle_1" />
     <child link="right_middle_2" />
     <axis xyz="0 0 1" />
@@ -1485,9 +1485,9 @@
   </joint>
   <link name="right_ring_1">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00240481178777663 0.0122571709475593 -0.00664923625225445" />
-      <mass value="0.00719998997814134" />
-      <inertia ixx="1.27830103769765E-06" ixy="7.45073064952644E-08" ixz="-6.73880804378546E-12" iyy="5.84879553082369E-07" iyz="6.33505850524704E-11" izz="1.32923557625194E-06" />
+      <origin rpy="0 0 0" xyz="0.00240530428455067 -0.0122563079467745 -0.00779931923444504" />
+      <mass value="0.00719949770218713" />
+      <inertia ixx="1.27820682409824E-06" ixy="7.45572429780095E-08" ixz="2.25718181777012E-12" iyy="5.84853511073516E-07" iyz="-8.5622233041164E-11" izz="1.32913088941838E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1495,7 +1495,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_ring_1.STL" />
       </geometry>
       <material name="right_ring_1_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1506,7 +1506,7 @@
     </collision>
   </link>
   <joint name="right_ring_1_joint" type="revolute">
-    <origin rpy="1.5184 0 -1.5708" xyz="-0.0037966 -0.11125 0.045878" />
+    <origin rpy="-1.5184 0 1.5708" xyz="-0.004945 -0.11125 0.045939" />
     <parent link="right_hand_base_link" />
     <child link="right_ring_1" />
     <axis xyz="0 0 1" />
@@ -1514,9 +1514,9 @@
   </joint>
   <link name="right_ring_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.000666830906754845 0.0256973412492289 -0.0060927714564012" />
-      <mass value="0.0096859390369724" />
-      <inertia ixx="2.26332196405867E-06" ixy="3.92172318180451E-07" ixz="-3.6571544042072E-10" iyy="3.83108005467821E-07" iyz="2.80158649618188E-09" izz="2.30200501593561E-06" />
+      <origin rpy="0 0 0" xyz="-0.000667145407605998 -0.0256949163202511 -0.00749252997688842" />
+      <mass value="0.00968685177133057" />
+      <inertia ixx="2.26381138740299E-06" ixy="3.92210300202205E-07" ixz="3.58404653503586E-10" iyy="3.83095000534084E-07" iyz="-2.77027363965472E-09" izz="2.30247104599333E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1524,7 +1524,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_ring_2.STL" />
       </geometry>
       <material name="right_ring_2_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1535,7 +1535,7 @@
     </collision>
   </link>
   <joint name="right_ring_2_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.0031431 0.032624 -0.00055" />
+    <origin rpy="0 0 0" xyz="0.0031431 -0.032624 -0.0003" />
     <parent link="right_ring_1" />
     <child link="right_ring_2" />
     <axis xyz="0 0 1" />
@@ -1543,9 +1543,9 @@
   </joint>
   <link name="right_little_1">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00316844591541322 0.0120823779446085 -0.00664923024026526" />
-      <mass value="0.00719994987013216" />
-      <inertia ixx="1.26624415714453E-06" ixy="1.17303714016617E-07" ixz="-1.15327375315847E-11" iyy="5.96925804604496E-07" iyz="6.36110319317551E-11" izz="1.32922857962207E-06" />
+      <origin rpy="0 0 0" xyz="0.0020908902145567 -0.0123138388094518 -0.00779930416612102" />
+      <mass value="0.00719949424831882" />
+      <inertia ixx="1.28158473132988E-06" ixy="5.67213995105241E-08" ixz="3.81932384005559E-13" iyy="5.81492545898195E-07" iyz="-8.62730752553906E-11" izz="1.32914698853052E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1553,7 +1553,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_little_1.STL" />
       </geometry>
       <material name="right_little_1_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1564,7 +1564,7 @@
     </collision>
   </link>
   <joint name="right_little_1_joint" type="revolute">
-    <origin rpy="1.4661 0 -1.5708" xyz="0.017589 -0.11125 0.042696" />
+    <origin rpy="-1.4661 0 1.5708" xyz="0.016446 -0.11125 0.042817" />
     <parent link="right_hand_base_link" />
     <child link="right_little_1" />
     <axis xyz="0 0 1" />
@@ -1572,9 +1572,9 @@
   </joint>
   <link name="right_little_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0204417303421136 -0.00469494170410353 -0.00609999668427265" />
-      <mass value="0.0075928240732547" />
-      <inertia ixx="2.31546812157118E-07" ixy="-7.27021381773956E-08" ixz="2.36649664862442E-11" iyy="1.27663957628266E-06" iyz="-7.58283070676227E-12" izz="1.23909562166535E-06" />
+      <origin rpy="0 0 0" xyz="-0.0017604035921492 -0.0209002097557272 -0.00750031127302827" />
+      <mass value="0.00759259232694104" />
+      <inertia ixx="1.2354235368985E-06" ixy="2.15945048600066E-07" ixz="3.12205526892557E-12" iyy="2.72718801980276E-07" iyz="-1.27574096139233E-11" izz="1.23906813966421E-06" />
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -1582,7 +1582,7 @@
         <mesh filename="package://h1_2_inspire_description/meshes/hand_right/right_little_2.STL" />
       </geometry>
       <material name="right_little_2_mat">
-        <color rgba="1 1 1 1" />
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -1593,7 +1593,7 @@
     </collision>
   </link>
   <joint name="right_little_2_joint" type="revolute">
-    <origin rpy="0 0 1.5708" xyz="-0.005182 0.032363 -0.00055" />
+    <origin rpy="0 0 0" xyz="0.0023072 -0.032694 -0.0003" />
     <parent link="right_little_1" />
     <child link="right_little_2" />
     <axis xyz="0 0 1" />
