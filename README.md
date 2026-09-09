@@ -44,7 +44,14 @@ The **right hand's digits are the exact mirror of the left hand's** across the
 palm's `y=0` plane — verified to 0.000000 mm vertex-for-vertex, at rest and
 throughout the joint range. The left hand is the reference: to change the digit
 geometry, edit `inspire_hand_left.urdf.xacro` and re-mirror the right, never the
-other way round. The palm (`*_hand_base_link`) is each side's own vendor export.
+other way round. The palm (`*_hand_base_link`) keeps each side's own vendor mesh.
+
+Both palms declare the **same inertial, including the wrist flange**: 0.260034 kg
+of palm plus 0.054057 kg of flange = **0.314091 kg**. The flange is deliberately
+absent from the visual and collision model. Where it seats on the palm is not
+recoverable from the vendor files, so its mass is spread like the rest of the
+palm (centre of mass unchanged, tensor scaled by 1.207882) rather than placed at
+a guessed lever arm.
 
 | Side | Actuated | Mimic (ROS) / Independent (Isaac) |
 |---|---|---|

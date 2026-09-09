@@ -13,15 +13,23 @@
      (-r,p,-y), axis (x,y,z) -> (-x,y,-z) and inertia ixy,iyz negated. The
      meshes in meshes/hand_right/ (except base_link.STL) are the left meshes
      with y negated. Edit the LEFT hand and re-mirror; do not edit these by
-     hand. right_hand_base_link (the palm) is the vendor's own export. -->
+     hand. right_hand_base_link (the palm) is the vendor's own export.
+     The palm's inertial includes the wrist flange (the part shipped as the
+     old meshes/hand_left/flange.STL): 0.260034 kg of palm + 0.054057 kg of
+     flange = 0.314091 kg. The flange is NOT in the visual or collision model.
+     Its exact seat on the palm is unknown: its mesh is a bare 75 mm disc in
+     its own frame, wider than the palm's wrist stem, so rather than invent a
+     lever arm, the 54 g is spread like the rest of the palm: the centre of
+     mass is unchanged and the tensor is scaled by 0.314091/0.260034 = 1.207882.
+     Both palms carry the same values, mirrored. -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <link name="right_hand_base_link">
     <inertial>
-      <origin xyz="-0.00827757758571113 -0.0384721010257447 0.114789391580906" rpy="0 0 0"/>
+      <origin xyz="-0.00826856171690858 -0.115495645683634 -0.0283405186091888" rpy="0 0 0"/>
       <mass value="0.314090908651444"/>
-      <inertia ixx="0.000240584294377349" ixy="5.34716372850393E-07" ixz="1.12900344118066E-06"
-               iyy="0.000155854672232219" iyz="-1.41174523865224E-05" izz="0.000284423438512345"/>
+      <inertia ixx="0.000270154676018588" ixy="-1.37017926233064E-06" ixz="6.45382821345028E-07"
+               iyy="0.0003222626319271" iyz="1.70243916062846E-05" izz="0.000160476557328711"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
