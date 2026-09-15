@@ -16,6 +16,7 @@ Tested with **ROS 2 Humble** on Ubuntu 22.04.
 | `urdf/h1_2_with_inspire_hands.urdf.xacro` | Full robot — body + both hands (58 joints total) |
 | `urdf/inspire_hand_left_standalone.urdf.xacro` | Left hand with world link for isolated visualization |
 | `urdf/inspire_hand_right_standalone.urdf.xacro` | Right hand with world link for isolated visualization |
+| `urdf/h1_2_with_RH56DFTP_hands.urdf` | **Flat URDF for Pinocchio and any plain-URDF consumer** |
 | `urdf/h1_2_hands_isaac.urdf` | **Flat URDF pre-processed for Isaac Sim 5.1** |
 
 ### Mesh directories
@@ -140,6 +141,58 @@ h1_2_with_inspire_hands.urdf.xacro
 ├── joint: left_inspire_hand_mount_joint  (fixed)
 └── joint: right_inspire_hand_mount_joint (fixed)
 ```
+
+---
+
+## Using the model with Pinocchio
+
+`urdf/h1_2_with_RH56DFTP_hands.urdf` is the xacro tree flattened into a single
+plain URDF, for Pinocchio and anything else that reads URDF but not xacro. It is
+the same model bit for bit: joint and frame names, inertial parameters, joint
+placements and limits all compare equal, and forward kinematics over random
+configurations agrees to 0.
+
+```python
+import pinocchio as pin
+
+path = "/path/to/your_ws/src/h1_2_inspire_description/urdf/h1_2_with_RH56DFTP_hands.urdf"
+model = pin.buildModelFromUrdf(path, pin.JointModelFreeFlyer(), mimic=True)
+data  = model.createData()
+# model.nq == 46, model.nv == 45, pin.computeTotalMass(model) == 68.664
+
+visual = pin.buildGeomFromUrdf(model, path, pin.GeometryType.VISUAL,
+                               package_dirs=["/path/to/your_ws/src"])
+collision = pin.buildGeomFromUrdf(model, path, pin.GeometryType.COLLISION,
+                                  package_dirs=["/path/to/your_ws/src"])
+# 55 visual objects, 48 collision objects
+```
+
+Two arguments are easy to leave out and both change the answer:
+
+| Argument | If omitted |
+|---|---|
+| `mimic=True` | The 12 coupled phalanges become independent joints and `nv` goes from 39 to 51. Commanding a finger no longer moves its distal phalanx. |
+| `pin.JointModelFreeFlyer()` | `pelvis` is welded to the `universe` body, so `computeTotalMass` skips its 5.983 kg and reports 62.681 kg. |
+
+With both, the articulated count is `nv - 6 = 39`: 27 body joints plus 6 actuated
+joints per hand.
+
+Three links carry no geometry at all (`imu_link`, `camera_link`, `lidar_link`),
+and seven more carry no collision mesh (`*_hip_yaw_link`, `*_ankle_pitch_link`,
+`*_wrist_yaw_link`, `logo_link`). That is how the upstream Unitree URDF ships and
+is left as is.
+
+### Regenerating it
+
+The file is generated, not maintained by hand. After any change to the xacro
+sources:
+
+```bash
+xacro urdf/h1_2_with_inspire_hands.urdf.xacro -o urdf/h1_2_with_RH56DFTP_hands.urdf
+```
+
+then restore the header comment and set `<robot name="h1_2_with_RH56DFTP_hands">`,
+neither of which xacro writes.
 
 ---
 
