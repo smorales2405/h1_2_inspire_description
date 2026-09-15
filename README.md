@@ -65,6 +65,34 @@ left_wrist_yaw_link  ──(fixed, xyz=0.165 -0.1125 -0.0075, rpy=π π/2 π)─
 right_wrist_yaw_link ──(fixed, xyz=0.165  0.1125 -0.0075, rpy=0  π/2 0)──► right_hand_base_link
 ```
 
+### Mass
+
+| Part | Mass (kg) |
+|---|---|
+| Body, no hands | 66.9840 |
+| Left hand (palm 0.314091 + digits 0.143381) | 0.457472 |
+| Right hand (identical, mirrored) | 0.457472 |
+| **Full robot with both hands** | **67.8989** |
+
+The body figure is the real robot's mass. Every link's mass, centre of mass and
+inertia tensor in `h1_2_body.urdf.xacro` is identical to upstream
+[`h1_2_handless.urdf`](https://github.com/unitreerobotics/unitree_ros/tree/master/robots/h1_2_description)
+— verified link by link, with the 28 body meshes in use matching by checksum.
+Only the mesh paths, the xacro namespace and the material names differ, plus the
+`<mujoco>` compiler block, which this package omits.
+
+> **Reading the mass back with Pinocchio.** On a fixed-base model,
+> `pin.computeTotalMass()` returns **61.9159 kg**, not 67.8989 kg. It is not a
+> defect in the model: `buildModelFromUrdf` without a root joint pins `pelvis` to
+> the `universe` body (index 0), and the sum runs over bodies `1..njoints`, so the
+> pelvis (5.983 kg) is left out. Add a free-flyer to get the real figure:
+>
+> ```python
+> import pinocchio as pin
+> model = pin.buildModelFromUrdf(urdf_path, pin.JointModelFreeFlyer())
+> pin.computeTotalMass(model)   # 67.898943
+> ```
+
 ---
 
 ## ROS 2 Installation and Usage
