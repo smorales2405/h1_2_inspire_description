@@ -17,6 +17,7 @@ Tested with **ROS 2 Humble** on Ubuntu 22.04.
 | `urdf/inspire_hand_left_standalone.urdf.xacro` | Left hand with world link for isolated visualization |
 | `urdf/inspire_hand_right_standalone.urdf.xacro` | Right hand with world link for isolated visualization |
 | `urdf/h1_2_with_RH56DFTP_hands.urdf` | **Flat URDF for Pinocchio and any plain-URDF consumer** |
+| `urdf/h1_2_handless.urdf` | **Flat URDF, body only (27 DOF, 66.984 kg)** |
 | `urdf/h1_2_hands_isaac.urdf` | **Flat URDF pre-processed for Isaac Sim 5.1** |
 
 ### Mesh directories
@@ -167,6 +168,20 @@ collision = pin.buildGeomFromUrdf(model, path, pin.GeometryType.COLLISION,
 # 55 visual objects, 48 collision objects
 ```
 
+`urdf/h1_2_handless.urdf` is the same file with both hands removed — the 26
+links and 26 joints hanging off the two mount joints, those joints included —
+for when the hands are not part of the problem:
+
+```python
+model = pin.buildModelFromUrdf(handless_path, pin.JointModelFreeFlyer())
+# model.nq == 34, model.nv == 33, pin.computeTotalMass(model) == 66.984
+```
+
+It has no mimic joints, so the `mimic` argument makes no difference there. Its
+model compares equal to expanding `h1_2_body.urdf.xacro`, and equal to upstream
+`h1_2_handless.urdf`, on joint names, inertial parameters, joint placements,
+limits and forward kinematics over random configurations.
+
 Two arguments are easy to leave out and both change the answer:
 
 | Argument | If omitted |
@@ -189,10 +204,11 @@ sources:
 
 ```bash
 xacro urdf/h1_2_with_inspire_hands.urdf.xacro -o urdf/h1_2_with_RH56DFTP_hands.urdf
+xacro urdf/h1_2_body.urdf.xacro               -o urdf/h1_2_handless.urdf
 ```
 
-then restore the header comment and set `<robot name="h1_2_with_RH56DFTP_hands">`,
-neither of which xacro writes.
+then restore each header comment and set the robot name
+(`h1_2_with_RH56DFTP_hands`, `h1_2_handless`), neither of which xacro writes.
 
 ---
 
