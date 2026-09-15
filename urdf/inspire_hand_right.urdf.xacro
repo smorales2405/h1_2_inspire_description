@@ -14,22 +14,23 @@
      meshes in meshes/hand_right/ (except base_link.STL) are the left meshes
      with y negated. Edit the LEFT hand and re-mirror; do not edit these by
      hand. right_hand_base_link (the palm) is the vendor's own export.
-     The palm's inertial includes the wrist flange (the part shipped as the
-     old meshes/hand_left/flange.STL): 0.260034 kg of palm + 0.054057 kg of
-     flange = 0.314091 kg. The flange is NOT in the visual or collision model.
-     Its exact seat on the palm is unknown: its mesh is a bare 75 mm disc in
-     its own frame, wider than the palm's wrist stem, so rather than invent a
-     lever arm, the 54 g is spread like the rest of the palm: the centre of
-     mass is unchanged and the tensor is scaled by 0.314091/0.260034 = 1.207882.
-     Both palms carry the same values, mirrored. -->
+     Palm mass is set from a scale reading of the real hand: 0.840 kg for the
+     whole hand, wrist flange included. The 12 digits keep their exported
+     0.143381 kg, so the palm carries 0.840 - 0.143381 = 0.696619 kg. The
+     deficit went to the palm because that is where the six actuators, the
+     gearboxes, the controller and the wiring sit, and because the CAD export
+     left almost every link at SolidWorks' default 1000 kg/m3. The flange is
+     NOT in the visual or collision model. The centre of mass is unchanged and
+     the tensor is scaled by 0.696619/0.314091 = 2.217891, which keeps the
+     vendor's mass distribution. Both palms carry the same values, mirrored. -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <link name="right_hand_base_link">
     <inertial>
       <origin xyz="-0.00826856171690858 -0.115495645683634 -0.0283405186091888" rpy="0 0 0"/>
-      <mass value="0.314090908651444"/>
-      <inertia ixx="0.000270154676018588" ixy="-1.37017926233064E-06" ixz="6.45382821345028E-07"
-               iyy="0.0003222626319271" iyz="1.70243916062846E-05" izz="0.000160476557328711"/>
+      <mass value="0.696619298523196"/>
+      <inertia ixx="0.000599173537715081" ixy="-3.03890781389993E-06" ixz="1.43138854357359E-06"
+               iyy="0.000714743287404168" iyz="3.77582394519895E-05" izz="0.000355919460629158"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>

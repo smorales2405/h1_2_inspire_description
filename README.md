@@ -46,12 +46,21 @@ throughout the joint range. The left hand is the reference: to change the digit
 geometry, edit `inspire_hand_left.urdf.xacro` and re-mirror the right, never the
 other way round. The palm (`*_hand_base_link`) keeps each side's own vendor mesh.
 
-Both palms declare the **same inertial, including the wrist flange**: 0.260034 kg
-of palm plus 0.054057 kg of flange = **0.314091 kg**. The flange is deliberately
-absent from the visual and collision model. Where it seats on the palm is not
-recoverable from the vendor files, so its mass is spread like the rest of the
-palm (centre of mass unchanged, tensor scaled by 1.207882) rather than placed at
-a guessed lever arm.
+Both palms declare the **same inertial, set from a scale reading of the real
+hand**: **0.840 kg** for the whole hand, wrist flange included. The 12 digits keep
+their exported 0.143381 kg, so the palm carries **0.696619 kg**. The flange is
+deliberately absent from the visual and collision model.
+
+The deficit was put entirely in the palm rather than spread over the hand. The
+CAD export left almost every link at SolidWorks' default 1000 kg/m³ — palm,
+`*_thumb_swing` and all eight finger phalanges — so the exported 457 g was never
+a measurement. The palm is where the six actuators, gearboxes, controller and
+wiring sit, which is exactly what such an export omits, and it lands at
+2682 kg/m³, an aluminium housing packed with motors. Scaling the whole hand by
+1.8362 instead would drive `*_thumb_1` and `*_thumb_2` to 9 900 and 10 400 kg/m³,
+denser than steel, so that option is not physical. The centre of mass is
+unchanged and the tensor is scaled by 0.696619/0.314091 = 2.217891, preserving
+the vendor's mass distribution.
 
 | Side | Actuated | Mimic (ROS) / Independent (Isaac) |
 |---|---|---|
@@ -67,12 +76,12 @@ right_wrist_yaw_link ──(fixed, xyz=0.165  0.1125 -0.0075, rpy=0  π/2 0)─�
 
 ### Mass
 
-| Part | Mass (kg) |
-|---|---|
-| Body, no hands | 66.9840 |
-| Left hand (palm 0.314091 + digits 0.143381) | 0.457472 |
-| Right hand (identical, mirrored) | 0.457472 |
-| **Full robot with both hands** | **67.8989** |
+| Part | Mass (kg) | Source |
+|---|---|---|
+| Body, no hands | 66.9840 | upstream URDF, matches the real robot |
+| Left hand (palm 0.696619 + digits 0.143381) | 0.8400 | weighed on a scale |
+| Right hand (identical, mirrored) | 0.8400 | weighed on a scale |
+| **Full robot with both hands** | **68.6640** | |
 
 The body figure is the real robot's mass. Every link's mass, centre of mass and
 inertia tensor in `h1_2_body.urdf.xacro` is identical to upstream
@@ -82,7 +91,7 @@ Only the mesh paths, the xacro namespace and the material names differ, plus the
 `<mujoco>` compiler block, which this package omits.
 
 > **Reading the mass back with Pinocchio.** On a fixed-base model,
-> `pin.computeTotalMass()` returns **61.9159 kg**, not 67.8989 kg. It is not a
+> `pin.computeTotalMass()` returns **62.6810 kg**, not 68.6640 kg. It is not a
 > defect in the model: `buildModelFromUrdf` without a root joint pins `pelvis` to
 > the `universe` body (index 0), and the sum runs over bodies `1..njoints`, so the
 > pelvis (5.983 kg) is left out. Add a free-flyer to get the real figure:
@@ -90,7 +99,7 @@ Only the mesh paths, the xacro namespace and the material names differ, plus the
 > ```python
 > import pinocchio as pin
 > model = pin.buildModelFromUrdf(urdf_path, pin.JointModelFreeFlyer())
-> pin.computeTotalMass(model)   # 67.898943
+> pin.computeTotalMass(model)   # 68.664000
 > ```
 
 ---
